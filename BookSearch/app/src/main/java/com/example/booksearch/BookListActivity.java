@@ -63,7 +63,7 @@ public class BookListActivity extends AppCompatActivity {
                     progress.setVisibility(ProgressBar.GONE);
                     JSONArray docs = null;
                     if(response != null) {
-                        docs = response.getJSONArray("docs");
+                        docs = response.getJSONArray("documents");
                         final ArrayList<Book> books = Book.fromJson(docs);
                         bookAdapter.clear();
                         for (Book book : books) {
