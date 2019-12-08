@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Book implements Serializable{
     private String openLibraryId;
-    private String author;
+    private String Author;
     private String title;
 
     public String getOpenLibraryId() {
@@ -23,7 +23,7 @@ public class Book implements Serializable{
     }
 
     public String getAuthor() {
-        return author;
+        return Author;
     }
 
     public String getCoverUrl() {
@@ -44,7 +44,7 @@ public class Book implements Serializable{
                 book.openLibraryId = ids.getString(0);
             }
             book.title = jsonObject.has("title_suggest") ? jsonObject.getString("title_suggest") : "";
-            book.author = getAuthor(jsonObject);
+            book.Author = getAuthor(jsonObject);
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class BookAdapter extends ArrayAdapter<Book> {
 
     private static class ViewHolder {
-        public ImageView ivCover;
-        public TextView tvTitle;
-        public TextView tvAuthor;
+        public ImageView cover;
+        public TextView title;
+        public TextView author;
     }
 
     public BookAdapter(Context context, ArrayList<Book> aBooks) {
@@ -33,16 +33,16 @@ public class BookAdapter extends ArrayAdapter<Book> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.item_book, parent, false);
-            viewHolder.ivCover = (ImageView)convertView.findViewById(R.id.ivBookCover);
-            viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.tvTitle);
-            viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
+            viewHolder.cover = (ImageView)convertView.findViewById(R.id.ivBookCover);
+            viewHolder.title = (TextView)convertView.findViewById(R.id.title);
+            viewHolder.author = (TextView)convertView.findViewById(R.id.author);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tvTitle.setText(book.getTitle());
-        viewHolder.tvAuthor.setText(book.getAuthor());
-        Picasso.with(getContext()).load(Uri.parse(book.getCoverUrl())).error(R.drawable.ic_nocover).into(viewHolder.ivCover);
+        viewHolder.title.setText(book.gettitle());
+        viewHolder.author.setText(book.getAuthor());
+        Picasso.with(getContext()).load(Uri.parse(book.getCoverUrl())).error(R.drawable.ic_nocover).into(viewHolder.cover);
         return convertView;
     }
 
